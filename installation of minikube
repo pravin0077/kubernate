@@ -1,0 +1,37 @@
+install minikube
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+----------------------------------------------------------------------------------------------------
+install kubectl
+
+# Download the latest stable version of kubectl
+sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+# Move the downloaded binary to the /usr/local/bin directory
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+# Verify the installation
+kubectl version --client
+---------------------------------------------------------------------------------------------------------
+install docker for its offical site 
+
+sudo apt install docker.io -y
+
+docker
+
+execute this command
+sudo usermod -aG docker $USER && newgrp docker
+
+-----------------------------------------------------------
+kubectl get pods -o wide -n uat && kubectl get svc -o wide -n uat
+
+
+kubectl expose pod eb-ms-pod --type NodePort --port 80 -n uat
+
+
+
+
+minikube start --force
